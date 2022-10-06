@@ -38,6 +38,7 @@ class GiphyGet {
     Color? tabColor,
     Color? backgroundColor,
     double? modalRadius,
+    Color? searchIconColor,
   }) {
     if (apiKey == "") {
       throw Exception("apiKey must be not null or not empty");

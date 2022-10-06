@@ -69,7 +69,7 @@ class _GiphyTabBarState extends State<GiphyTabBar> {
 
     return TabBar(
       unselectedLabelColor: Theme.of(context).bottomNavigationBarTheme.unselectedItemColor,
-      labelColor: Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
+      labelColor: _tabProvider.tabColor ?? Theme.of(context).bottomNavigationBarTheme.selectedItemColor,
       indicatorColor: Colors.transparent,
       indicatorSize: TabBarIndicatorSize.label,
       controller: widget.tabController,

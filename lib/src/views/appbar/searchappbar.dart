@@ -11,10 +11,11 @@ import 'package:giphy_get/src/providers/tab_provider.dart';
 import 'package:provider/provider.dart';
 
 class SearchAppBar extends StatefulWidget {
+  Color? searchIconColor;
   // Scroll Controller
   final ScrollController scrollController;
 
-  SearchAppBar({Key? key, required this.scrollController}) : super(key: key);
+  SearchAppBar({Key? key, required this.scrollController, this.searchIconColor,}) : super(key: key);
 
   @override
   _SearchAppBarState createState() => _SearchAppBarState();
@@ -41,11 +42,9 @@ class _SearchAppBarState extends State<SearchAppBar> {
     // Focus
     _focus.addListener(_focusListener);
 
-    //Set Texfielf
     _textEditingController = new TextEditingController(
         text: Provider.of<AppBarProvider>(context, listen: false).queryText);
 
-    // Listener TextField
     _textEditingController.addListener(() {
       if (_appBarProvider.queryText != _textEditingController.text) {
         _appBarProvider.queryText = _textEditingController.text;
@@ -132,26 +131,8 @@ class _SearchAppBarState extends State<SearchAppBar> {
   }
 
   Widget _searchIcon() {
-    if (kIsWeb) {
-      return Icon(Icons.search);
-    } else {
-      return ShaderMask(
-        shaderCallback: (bounds) => LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [
-              Color(0xFFFF6666),
-              Color(0xFF9933FF),
-            ]).createShader(bounds),
-        child: Transform(
-            alignment: Alignment.center,
-            transform: Matrix4.rotationY(pi),
-            child: Icon(
-              Icons.search,
-              color: Colors.white,
-            )),
-      );
-    }
+    return Icon(Icons.search,
+    color: widget.searchIconColor ?? Colors.black,);
   }
 
   void _focusListener() {
