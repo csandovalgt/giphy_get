@@ -11,11 +11,17 @@ import 'package:giphy_get/src/providers/tab_provider.dart';
 import 'package:provider/provider.dart';
 
 class SearchAppBar extends StatefulWidget {
-  Color? searchIconColor;
+  Color searchIconColor;
+  Color cleanTextIconColor;
   // Scroll Controller
   final ScrollController scrollController;
 
-  SearchAppBar({Key? key, required this.scrollController, this.searchIconColor,}) : super(key: key);
+  SearchAppBar({
+    Key? key,
+    required this.scrollController,
+    required this.searchIconColor,
+    required this.cleanTextIconColor,
+  }) : super(key: key);
 
   @override
   _SearchAppBarState createState() => _SearchAppBarState();
@@ -108,8 +114,7 @@ class _SearchAppBarState extends State<SearchAppBar> {
                         suffixIcon: IconButton(
                             icon: Icon(
                               Icons.clear,
-                              color:
-                                  Theme.of(context).primaryColor,
+                              color: widget.cleanTextIconColor,
                             ),
                             onPressed: () {
                               setState(() {
@@ -131,8 +136,10 @@ class _SearchAppBarState extends State<SearchAppBar> {
   }
 
   Widget _searchIcon() {
-    return Icon(Icons.search,
-    color: widget.searchIconColor ?? Colors.black,);
+    return Icon(
+      Icons.search,
+      color: widget.searchIconColor,
+    );
   }
 
   void _focusListener() {
