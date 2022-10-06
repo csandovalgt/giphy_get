@@ -71,7 +71,8 @@ class _MainViewState extends State<MainView>
           GiphyTabBar(
             tabController: _tabController,
           ),
-          SearchAppBar(scrollController: this._scrollController),
+          SearchAppBar(scrollController: this._scrollController,
+          searchIconColor: widget.searchIconColor, cleanTextIconColor: widget.cleanTextIconColor,),
           Expanded(
               child: GiphyTabView(
             tabController: _tabController,
