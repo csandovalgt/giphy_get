@@ -75,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // Random ID
   String randomId = "";
 
-  String giphyApiKey = dotenv.env["GIPHY_API_KEY"];
+  String giphyApiKey = "51C9iIKaZhWCwrLurMUr1K6gsu08KCxU";
 
   @override
   void initState() {

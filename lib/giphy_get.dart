@@ -36,15 +36,20 @@ class GiphyGet {
     String queryText = "",
     bool modal = true,
     Color? tabColor,
+    Color? backgroundColor,
+    double? modalRadius,
+    Color? dividerColor,
   }) {
     if (apiKey == "") {
       throw Exception("apiKey must be not null or not empty");
     }
 
     return showModalBottomSheet<GiphyGif>(
+        backgroundColor: backgroundColor ?? Colors.white,
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(top: Radius.circular(10.0))),
+            borderRadius: BorderRadius.vertical(
+                top: Radius.circular(modalRadius ?? 10.0))),
         isScrollControlled: true,
         context: context,
         builder: (ctx) => MultiProvider(providers: [

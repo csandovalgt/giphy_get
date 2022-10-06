@@ -8,7 +8,11 @@ import 'package:giphy_get/src/views/tab/giphy_tab_view.dart';
 import 'package:provider/provider.dart';
 
 class MainView extends StatefulWidget {
-  MainView({Key? key}) : super(key: key);
+  Color? backgroundColor;
+  Color? hintColor;
+  Color? dividerColor;
+  MainView({Key? key, this.dividerColor, this.hintColor, this.backgroundColor})
+      : super(key: key);
 
   @override
   _MainViewState createState() => _MainViewState();
