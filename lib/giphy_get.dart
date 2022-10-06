@@ -29,8 +29,8 @@ class GiphyGet {
   static Future<GiphyGif?> getGif({
     required BuildContext context,
     required String apiKey,
-    required Color searchIconColor,
-    required Color cleanTextIconColor,
+    Color? searchIconColor,
+    Color? cleanTextIconColor,
     String rating = GiphyRating.g,
     String lang = GiphyLanguage.english,
     String randomID = "",
@@ -72,8 +72,8 @@ class GiphyGet {
         ],
         child: SafeArea(
           child: MainView(
-            searchIconColor: searchIconColor,
-            cleanTextIconColor: cleanTextIconColor,
+            searchIconColor: searchIconColor ?? Colors.black,
+            cleanTextIconColor: cleanTextIconColor ?? Colors.black,
           ),
         ),
       ),
